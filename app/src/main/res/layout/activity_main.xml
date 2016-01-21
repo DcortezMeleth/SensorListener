@@ -1,0 +1,118 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/accelerometer"
+        android:text="@string/accelerometer"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/x_label"
+        android:text="@string/x_label"
+        android:layout_below="@+id/accelerometer"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/x_value"
+        android:layout_alignParentBottom="false"
+        android:layout_below="@+id/accelerometer"
+        android:layout_toRightOf="@+id/x_label"
+        android:layout_toEndOf="@+id/x_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/y_label"
+        android:text="@string/y_label"
+        android:layout_below="@+id/x_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/y_value"
+        android:layout_alignParentBottom="false"
+        android:layout_below="@+id/x_label"
+        android:layout_toRightOf="@+id/y_label"
+        android:layout_toEndOf="@+id/y_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/z_label"
+        android:text="@string/z_label"
+        android:layout_below="@+id/y_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/z_value"
+        android:layout_below="@+id/y_label"
+        android:layout_toRightOf="@+id/z_label"
+        android:layout_toEndOf="@+id/z_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gyroscope"
+        android:text="@string/gyroscope"
+        android:layout_below="@+id/z_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/x_label2"
+        android:text="@string/x_label2"
+        android:layout_below="@+id/gyroscope"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/x_value2"
+        android:layout_alignParentBottom="false"
+        android:layout_below="@+id/gyroscope"
+        android:layout_toRightOf="@+id/x_label2"
+        android:layout_toEndOf="@+id/x_label2"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/y_label2"
+        android:text="@string/y_label2"
+        android:layout_below="@+id/x_label2"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/y_value2"
+        android:layout_alignParentBottom="false"
+        android:layout_below="@+id/x_label2"
+        android:layout_toRightOf="@+id/y_label2"
+        android:layout_toEndOf="@+id/y_label2"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/z_label2"
+        android:text="@string/z_label2"
+        android:layout_below="@+id/y_label2"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/z_value2"
+        android:layout_below="@+id/y_label2"
+        android:layout_toRightOf="@+id/z_label2"
+        android:layout_toEndOf="@+id/z_label2"/>
+
+</RelativeLayout>
