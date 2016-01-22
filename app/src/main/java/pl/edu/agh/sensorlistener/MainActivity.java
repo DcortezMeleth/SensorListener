@@ -19,6 +19,8 @@ import java.io.IOException;
 public class MainActivity extends ActionBarActivity implements SensorEventListener {
     
     private static final String ADDR = "ws:///192.168.0.16/endpoint";
+    
+    private static final double THRESHOLD = 0.01;
 
     WebSocket ws;
 
@@ -103,17 +105,25 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
     @Override
     public void onSensorChanged(final SensorEvent event) {
         if(event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            valueX.setText(String.valueOf(event.values[0]));
-            valueY.setText(String.valueOf(event.values[1]));
-            valueZ.setText(String.valueOf(event.values[2]));
-            ws.sendText("ACC;" + String.valueOf(event.values[0]) + ";" +
-                    String.valueOf(event.values[1]) + ";" + String.valueOf(event.values[2]));
+            if(Math.abs(Double.valueOf(valueX.getText()) - event.values[0]) > THRESHOLD ||
+                    Math.abs(Double.valueOf(valueY.getText()) - event.values[1]) > THRESHOLD ||
+                    Math.abs(Double.valueOf(valueZ.getText()) - event.values[2]) > THRESHOLD) {
+                valueX.setText(String.valueOf(event.values[0]));
+                valueY.setText(String.valueOf(event.values[1]));
+                valueZ.setText(String.valueOf(event.values[2]));
+                ws.sendText(valueX2.getText() + "," + valueY2.getText() + "," + valueZ2.getText() + "," 
+                    + valueX.getText() + "," + valueY.getText() + "," + valueZ.getText() + "\n");
+            }
         } else if(event.sensor.getType() == Sensor.TYPE_GYROSCOPE) {
-            valueX2.setText(String.valueOf(event.values[0]));
-            valueY2.setText(String.valueOf(event.values[1]));
-            valueZ2.setText(String.valueOf(event.values[2]));
-            ws.sendText("GYR;" + String.valueOf(event.values[0]) + ";" +
-                    String.valueOf(event.values[1]) + ";" + String.valueOf(event.values[2]));
+            if(Math.abs(Double.valueOf(valueX2.getText()) - event.values[0]) > THRESHOLD ||
+                    Math.abs(Double.valueOf(valueY2.getText()) - event.values[1]) > THRESHOLD ||
+                    Math.abs(Double.valueOf(valueZ2.getText()) - event.values[2]) > THRESHOLD) {
+                valueX2.setText(String.valueOf(event.values[0]));
+                valueY2.setText(String.valueOf(event.values[1]));
+                valueZ2.setText(String.valueOf(event.values[2]));
+                ws.sendText(valueX2.getText() + "," + valueY2.getText() + "," + valueZ2.getText() + "," 
+                    + valueX.getText() + "," + valueY.getText() + "," + valueZ.getText() + "\n");
+            }
         }
 
     }
