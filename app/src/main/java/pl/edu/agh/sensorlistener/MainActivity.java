@@ -17,6 +17,8 @@ import java.io.IOException;
 
 
 public class MainActivity extends ActionBarActivity implements SensorEventListener {
+    
+    private static final String ADDR = "ws:///192.168.0.16/endpoint";
 
     WebSocket ws;
 
@@ -62,7 +64,7 @@ public class MainActivity extends ActionBarActivity implements SensorEventListen
         valueZ2 = (TextView) findViewById(R.id.z_value2);
 
         try {
-            ws = new WebSocketFactory().createSocket("ws:///192.168.0.16/endpoint");
+            ws = new WebSocketFactory().createSocket(ADDR);
             ws.connectAsynchronously();
         } catch(IOException e) {
             e.printStackTrace();
